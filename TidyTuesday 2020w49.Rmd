@@ -1,0 +1,69 @@
+---
+title: "#TidyTuesday 2020 week 49"
+output: github_document
+---
+
+# Libraries
+```{r}
+library(dplyr)
+library(ggplot2)
+library(gganimate)
+```
+
+
+# Get the Data
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2020-12-01')
+
+shelters <- tuesdata$shelters
+```
+
+# Introduce the data
+```{r}
+DataExplorer::introduce(shelters, add_percent = T)
+str(shelters)
+summary(shelters)
+head(shelters)
+tail(shelters)
+
+shelters %>% 
+  group_by(id, organization_name) %>% 
+  count()
+
+
+table(shelters$shelter_province)
+table(shelters$sector)
+table(shelters$shelter_city)
+```
+
+# selecting variables
+```{r}
+shelts <- shelters %>% 
+  group_by(
+    date = zoo::as.yearmon(occupancy_date),
+    sector
+  ) %>% 
+  summarise(
+    occupancy = mean(occupancy)/mean(capacity)*100
+  ) %>% 
+  ungroup()
+
+table(shelts$sector)
+```
+
+# Animated plot
+```{r}
+sectors <- ggplot(shelts)+
+  geom_col(aes(sector, 100), alpha = 0.25)+
+  geom_col(aes(sector, occupancy, fill=sector))+
+  labs(title = 'Behavior of the total occupancy level by sector over time', subtitle = 'Date: {frame_time}', x = 'Sector', y = 'Percent of occupancy') +
+  geom_text(aes(sector, occupancy*1.02, label = paste0(format(occupancy, digits = 1, nsmall = 1), '%')), position = position_dodge(width = 1)) +
+  transition_time(zoo::as.Date(date))+
+  theme_bw()
+
+#plot(sectors)
+animat <- animate(sectors)
+anim_save('tidytuesday2020w49.gif', animat)
+beepr::beep()
+```
+
