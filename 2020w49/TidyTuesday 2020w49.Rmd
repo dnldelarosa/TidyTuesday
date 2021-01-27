@@ -61,11 +61,10 @@ sectors <- ggplot(shelts)+
   transition_time(zoo::as.Date(date))+
   theme_bw()
 
+animate(sectors, renderer = gifski_renderer())
+
 if(interactive()){
-  animat <- animate(sectors)
-  anim_save('tidytuesday2020w49.gif', animat)
-} else {
-  plot(sectors)
+  anim_save('tidytuesday2020w49.gif')
 }
 ```
 

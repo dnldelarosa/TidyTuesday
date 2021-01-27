@@ -250,14 +250,99 @@ sectors <- ggplot(shelts)+
   transition_time(zoo::as.Date(date))+
   theme_bw()
 
-if(interactive()){
-  animat <- animate(sectors)
-  anim_save('tidytuesday2020w49.gif', animat)
-} else {
-  plot(sectors)
-}
+animate(sectors)
 ```
 
     ## Warning: Removed 18 rows containing missing values (position_stack).
 
-![](TidyTuesday-2020w49_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+
+    ## Warning: Removed 5 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 5 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 5 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 5 rows containing missing values (geom_text).
+
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+    
+    ## Warning: Removed 1 rows containing missing values (geom_text).
+
+![](TidyTuesday-2020w49_files/figure-gfm/unnamed-chunk-5-1.gif)<!-- -->
+
+``` r
+if(interactive()){
+  anim_save('tidytuesday2020w49.gif')
+}
+```
